@@ -12,7 +12,7 @@ public class CalculatorTests
     public void Add_ReturnsCorrectSum()
     {
         var calc = new Calculator();
-        Assert.Equal(5, calc.Add(2, 3));
+        Assert.Equal(5, calc.Add(5, 3));
     }
 
     [Fact]
