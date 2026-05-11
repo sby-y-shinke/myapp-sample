@@ -1,34 +1,34 @@
-name: Scheduled Commit and Push666
+# name: Scheduled Commit and Push666
 
-on:
-  schedule:
-    - cron: '30 * * * *'
+# on:
+#   schedule:
+#     - cron: '30 * * * *'
 
-permissions:
-  contents: write   # ← これを追加
+# permissions:
+#   contents: write   # ← これを追加
 
-jobs:
-  scheduled_task:
-    runs-on: ubuntu-latest
+# jobs:
+#   scheduled_task:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Setup Git
-        run: |
-          git config --global user.name "sby-y-shinke"
-          git config --global user.email "y-shinke@shibuya.co.jp"
+#       - name: Setup Git
+#         run: |
+#           git config --global user.name "sby-y-shinke"
+#           git config --global user.email "y-shinke@shibuya.co.jp"
 
-      - name: Update a file
-        run: |
-          echo "Last update: $(date)" >> updated_file.txt
+#       - name: Update a file
+#         run: |
+#           echo "Last update: $(date)" >> updated_file.txt
 
-      - name: Commit changes
-        run: |
-          git add updated_file.txt
-          git commit -m "Automated update: $(date)"
+#       - name: Commit changes
+#         run: |
+#           git add updated_file.txt
+#           git commit -m "Automated update: $(date)"
 
-      - name: Push changes
-        run: |
-          git push origin main
+#       - name: Push changes
+#         run: |
+#           git push origin main
