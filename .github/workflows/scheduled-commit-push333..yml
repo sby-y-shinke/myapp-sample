@@ -1,39 +1,39 @@
-name: Scheduled Commit and Push333
+# name: Scheduled Commit and Push333
 
-on:
-  schedule:
-    # 毎日午前3:00 (UTC) に実行する場合
-    - cron: '53 * * * *'
+# on:
+#   schedule:
+#     # 毎日午前3:00 (UTC) に実行する場合
+#     - cron: '53 * * * *'
 
-jobs:
-  scheduled_task:
-    runs-on: ubuntu-latest
+# jobs:
+#   scheduled_task:
+#     runs-on: ubuntu-latest
 
-    steps:
-      # リポジトリをクローン
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#     steps:
+#       # リポジトリをクローン
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      # 必要な事前設定を実行 (Gitを設定)
-      - name: Setup Git
-        run: |
-          git config --global user.name "sby-y-shinke"
-          git config --global user.email "y-shinke@shibuya.co.jp"
+#       # 必要な事前設定を実行 (Gitを設定)
+#       - name: Setup Git
+#         run: |
+#           git config --global user.name "sby-y-shinke"
+#           git config --global user.email "y-shinke@shibuya.co.jp"
 
-      # 実際の変更を行うスクリプトを実行 (例: ファイル内容を更新)
-      - name: Update a file
-        run: |
-          echo "Last update: $(date)" >> updated_file.txt
+#       # 実際の変更を行うスクリプトを実行 (例: ファイル内容を更新)
+#       - name: Update a file
+#         run: |
+#           echo "Last update: $(date)" >> updated_file.txt
 
-      # ファイルをステージングしてコミット
-      - name: Commit changes
-        run: |
-          git add updated_file.txt
-          git commit -m "Automated update: $(date)"
+#       # ファイルをステージングしてコミット
+#       - name: Commit changes
+#         run: |
+#           git add updated_file.txt
+#           git commit -m "Automated update: $(date)"
 
-      # GitHubにプッシュ
-      - name: Push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin main
+#       # GitHubにプッシュ
+#       - name: Push changes
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         run: |
+#           git push origin main
